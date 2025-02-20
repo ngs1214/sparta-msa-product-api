@@ -28,11 +28,14 @@ services:
       PRODUCT_DB_URL: jdbc:mysql://product-db:3306/productdb
     networks:
       - product-network
+      - prometheus-network
 
 networks:
   product-network:
     driver: bridge
-
+  prometheus-network:
+    name: prometheus-network
+    external: true
 volumes:
   product-db-data:
 
